@@ -1,7 +1,9 @@
 class Solution {
     public boolean isHappy(int n) {
         int sum;
-        while(n!=1 && n!=4){
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        while(n!=1 && !a.contains(n)){
+            a.add(n);
             sum=0;
             while(n>0){
                 int rem = (n%10);
@@ -10,8 +12,6 @@ class Solution {
             }
             n=sum;
         }
-        if(n==1)
-            return true;
-        return false;
+        return n==1;
     }
 }
