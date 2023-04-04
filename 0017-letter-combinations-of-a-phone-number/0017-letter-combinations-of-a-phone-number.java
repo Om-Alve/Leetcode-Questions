@@ -4,19 +4,18 @@ class Solution {
         if(digits.isEmpty()){
             return new ArrayList<String>();
         }
-      return combinations(digits,"");
+        ArrayList<String> ans = new ArrayList<>();
+        combinations(digits,"",ans);
+      return ans;
     }
-    public List<String> combinations(String digits,String ans){
+    public void combinations(String digits,String p,ArrayList<String> ans){
         if(digits.isEmpty()){
-            ArrayList<String> answers = new ArrayList<>();
-            answers.add(ans);
-            return answers;
+            ans.add(p);
+            return;
         }
-        ArrayList<String> list = new ArrayList<>();
         String let = (letters[(digits.charAt(0)) - '0']);
         for(int i = 0 ; i < let.length(); i++){
-            list.addAll(combinations(digits.substring(1),ans + let.charAt(i)));
+            combinations(digits.substring(1),p + let.charAt(i),ans);
         }
-        return list;
     }
 }
