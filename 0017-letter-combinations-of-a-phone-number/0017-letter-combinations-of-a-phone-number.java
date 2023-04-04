@@ -5,17 +5,19 @@ class Solution {
             return new ArrayList<String>();
         }
         ArrayList<String> ans = new ArrayList<>();
-        combinations(digits,"",ans);
+        combinations(digits,new StringBuilder(),ans);
       return ans;
     }
-    public void combinations(String digits,String p,ArrayList<String> ans){
+    public void combinations(String digits,StringBuilder p,ArrayList<String> ans){
         if(digits.isEmpty()){
-            ans.add(p);
+            ans.add(p.toString());
             return;
         }
         String let = (letters[(digits.charAt(0)) - '0']);
         for(int i = 0 ; i < let.length(); i++){
-            combinations(digits.substring(1),p + let.charAt(i),ans);
+            p.append(let.charAt(i));
+            combinations(digits.substring(1), p,ans);
+            p.deleteCharAt(p.length() - 1);
         }
     }
 }
