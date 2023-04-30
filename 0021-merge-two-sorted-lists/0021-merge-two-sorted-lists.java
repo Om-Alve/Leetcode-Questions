@@ -16,23 +16,13 @@ class Solution {
         ListNode s = list2;
         while(f != null && s !=null){
             if(f.val<=s.val){
-                if(ans == null){
-                    ans.val = f.val;
-                }
-                else{
-                    ans.next = new ListNode(f.val);
-                    ans = ans.next;
-                }
+                ans.next = new ListNode(f.val);
+                ans = ans.next;
                 f = f.next;
             }
             else{
-                if(ans==null){
-                    ans.val = s.val; 
-                }
-                else{
-                    ans.next = new ListNode(s.val);
-                    ans = ans.next;
-                }
+                ans.next = new ListNode(s.val);
+                ans = ans.next;
                 s = s.next;
             }
         }
