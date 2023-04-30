@@ -26,7 +26,7 @@ class Solution {
                 f = f.next;
             }
             else{
-                if(ans == null){
+                if(ans==null){
                     ans.val = s.val; 
                 }
                 else{
