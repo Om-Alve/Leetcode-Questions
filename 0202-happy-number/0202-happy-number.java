@@ -2,14 +2,14 @@ class Solution {
     public boolean isHappy(int n) {
         int f = n;
         int s = n;
-        while(f!=1){
+        do{
             s=square(s);
             f = square(square(f));
-            if(f==s && f!=1){
-                return false;
-            }
+        }while(f!=s);
+        if(s==1){
+            return true;    
         }
-        return true;
+        return false;
     }
     public int square(int n){
         int sq = 0;
