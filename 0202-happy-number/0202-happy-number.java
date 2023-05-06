@@ -1,17 +1,22 @@
 class Solution {
     public boolean isHappy(int n) {
-        int sum;
-        ArrayList<Integer> a = new ArrayList<Integer>();
-        while(n!=1 && !a.contains(n)){
-            a.add(n);
-            sum=0;
-            while(n>0){
-                int rem = (n%10);
-                sum += rem * rem;
-                n/=10;
+        int f = n;
+        int s = n;
+        while(f!=1){
+            s=square(s);
+            f = square(square(f));
+            if(f==s && f!=1){
+                return false;
             }
-            n=sum;
         }
-        return n==1;
+        return true;
+    }
+    public int square(int n){
+        int sq = 0;
+        while(n!=0){
+            sq+=(n%10)*(n%10);
+            n/=10;
+        }
+        return sq;
     }
 }
