@@ -17,7 +17,6 @@ class Solution {
         ListNode prev = null;
         ListNode present = head;
         
-        // Step 1: Traverse to the node at position 'left'
         for (int i = 0; i < left - 1 && present != null; i++) {
             prev = present;
             present = present.next;
@@ -27,7 +26,6 @@ class Solution {
         ListNode last = prev;
         ListNode newEnd = present;
         
-        // Step 2: Reverse the nodes from 'left' to 'right'
         for (int i = 0; i < right - left + 1; i++) {
             present.next = prev;
             prev = present;
@@ -38,7 +36,6 @@ class Solution {
             }
         }
         
-        // Step 3: Connect the reversed portion back to the original list
         if (last != null) {
             last.next = prev;
         } else {
