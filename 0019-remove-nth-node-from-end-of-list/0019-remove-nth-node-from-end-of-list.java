@@ -14,11 +14,11 @@ class Solution {
             return null;
         }
         int index = getLength(head) - n;
-        ListNode prev = null;
-        ListNode present = head;
         if(index <= 0){
             return head.next;
         }
+        ListNode prev = null;
+        ListNode present = head;
         while(index>0){
             prev = present;
             present = present.next;
