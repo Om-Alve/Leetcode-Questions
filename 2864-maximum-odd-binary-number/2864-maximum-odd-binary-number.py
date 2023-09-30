@@ -6,6 +6,6 @@ class Solution(object):
         """
         s = list(s)
         c = s.count('1')
-        ans = '1'*(c-1)+'0'*(len(s)-c)+'1'
-        return ans;
+        return '1'*(c-1)+'0'*(len(s)-c)+'1'
+        
         
